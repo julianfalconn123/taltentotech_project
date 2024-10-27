@@ -91,14 +91,30 @@ h1, h2 {
     color: #333;
 }
 
+.productos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los productos se envuelvan */
+    justify-content: space-between; /* Espacio entre los productos */
+    padding: 20px;
+}
+
 .producto {
     background: #fff; /* Fondo blanco */
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    margin: 10px 0;
+    margin: 10px; /* Espacio entre productos */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px); /* Ajuste para tres productos por fila */
 }
+
+/* Estilo para las imágenes de los productos */
+.producto img {
+    max-width: 100%;
+    height: auto; /* Mantiene la proporción */
+    border-radius: 8px;
+}
+
 
 form {
     display: flex;
@@ -142,7 +158,19 @@ footer {
 }
 
 /* Estilos responsivos */
+@media (max-width: 768px) {
+    .producto {
+        width: calc(50% - 20px); /* Dos productos por fila en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .producto {
+        width: 100%; /* Un producto por fila en pantallas muy pequeñas */
+    }
+}
 @media (max-width: 600px) {
+
     nav ul {
         flex-direction: column;
         align-items: flex-start;
