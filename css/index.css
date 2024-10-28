@@ -21,28 +21,40 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    width: 50px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+.logo-text {
+    font-size: 1.5em; /* Tamaño del texto del logo */
+    font-weight: bold; /* Negrita para destacar */
 }
 
 nav ul {
-    list-style: none;
+    list-style: none; /* Sin viñetas */
     display: flex;
+    gap: 15px; /* Espacio entre los enlaces */
+}
+
+nav a {
+    color: #fff; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s; /* Efecto de transición */
+}
+
+nav a:hover {
+    color: #FFD700; /* Color dorado al pasar el ratón */
 }
 
 nav ul li {
     margin-left: 20px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #FFD700; /* Color dorado */
 }
 
 .bienvenida {
@@ -62,7 +74,7 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(116, 116, 116, 0.5); 
+    background: rgba(46, 46, 46, 0.5); 
     z-index: 1; 
 }
 
@@ -189,7 +201,7 @@ footer {
     transition: filter 0.3s; /* Efecto de brillo */
 }
 
-.social-link:hover .icon {
+.icon:hover  {
     filter: brightness(1.2); /* Aumenta el brillo al pasar el ratón */
     transform: scale(1.1); /* Efecto de escala al pasar el ratón */
 }
