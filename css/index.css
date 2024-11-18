@@ -209,6 +209,60 @@ footer {
     transform: scale(1.1); /* Efecto de escala al pasar el ratón */
 }
 
+/* Estilo para la sección de comentarios */
+#comentarios {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#comentarios h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Grid para los comentarios */
+.comentarios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas por defecto */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo para cada comentario */
+.comentario {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.comentario-header h3 {
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+
+.comentario-header .fecha {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.comentario-texto {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
 .footer-credits {
     font-size: 16px;
     margin-top: 20px;
@@ -243,11 +297,17 @@ footer {
     .producto {
         width: calc(50% - 20px); /* Dos productos por fila en pantallas pequeñas */
     }
+    .comentarios-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas para pantallas medianas */
+    }
 }
 
 @media (max-width: 480px) {
     .producto {
         width: 100%; /* Un producto por fila en pantallas muy pequeñas */
+    }
+    .comentarios-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
     }
 }
 @media (max-width: 600px) {
