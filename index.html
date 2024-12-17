@@ -18,6 +18,12 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#consulta">Consulta</a></li>
+                            <li class="cart">
+                <a href="#" id="cartBtn">
+                    <img src="./img/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Carrito">
+                    <span id="cartCount">0</span>
+                </a>
+            </li>
             </ul>
         </nav>
     </header>
@@ -34,97 +40,19 @@
                 <h3>Brahma 1L</h3>
                 <p>Precio: $23500</p>
             </div>
-            <div class="producto">
-                <img src="./img/img_cocacola2.25.webp" alt="Producto 2">
-                <h3>Coca Cola 2.25 x6</h3>
-                <p>Precio: $15500</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_iguana.jpg" alt="Producto 3">
-                <h3>Iguana 1L</h3>
-                <p>Precio: $19000</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_lataBrahma.png" alt="Producto 4">
-                <h3>Lata Brahma x24</h3>
-                <p>Precio: $27400</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_manaos.webp" alt="Producto 5">
-                <h3>Manaos 2.25</h3>
-                <p>Precio: $5500</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_scheneider.jpg" alt="Producto 6">
-                <h3>Laton Scheneider x24</h3>
-                <p>Precio: $50000</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_monster.png" alt="Producto 6">
-                <h3>Monster</h3>
-                <p>Precio: $9000</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_rasta.webp" alt="Producto 6">
-                <h3>Rasta</h3>
-                <p>Precio: $750</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_baggio.jpg" alt="Producto 6">
-                <h3>Baggio 1L</h3>
-                <p>Precio: $8700</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_baggio200.jpg" alt="Producto 6">
-                <h3>Baggio 200ml</h3>
-                <p>Precio: $6000</p>
-            </div>
-            <div class="producto">
-                <img src="https://static.wixstatic.com/media/d2b1c5_97ae7256ae7f46cea9c56f7abbe27374~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="Producto 6">
-                <h3>Soda Manaos</h3>
-                <p>Precio: $5600</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_drlemon.jpg" alt="Producto 6">
-                <h3>Dr Lemon 1L</h3>
-                <p>Precio: $1800</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_fernet750.jpg" alt="Producto 6">
-                <h3>Fernet Branca 750ml</h3>
-                <p>Precio: $9800</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_fernet450.jpg" alt="Producto 6">
-                <h3>Fernet Branca 450ml</h3>
-                <p>Precio: $6800</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_fresh.jpg" alt="Producto 6">
-                <h3>Fresh Baggio</h3>
-                <p>Precio: $4300</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_secco3L.webp" alt="Producto 6">
-                <h3>Secco 3L</h3>
-                <p>Precio: $6200</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_secco2.25.jpg" alt="Producto 6">
-                <h3>Secco 2.25L</h3>
-                <p>Precio: $5000</p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_gancia.jpg" alt="Producto 6">
-                <h3>Gancia</h3>
-                <p>Precio: $3700 </p>
-            </div>
-            <div class="producto">
-                <img src="./img/img_smirnoffbotella.webp" alt="Producto 6">
-                <h3>Smirnoff</h3>
-                <p>Precio: $6000</p>
-            </div>
-        </section>
+                <!-- Carrito Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <span id="closeCart" class="close">&times;</span>
+            <h2>Tu Carrito</h2>
+            <ul id="cartItems">
+                <!-- Los productos del carrito se mostrarán aquí -->
+            </ul>
+            <p>Total: $<span id="totalPrice">0.00</span></p>
+            <button id="checkoutBtn">Proceder al pago</button>
+        </div>
+    </div>
+        </section> 
         <section id="comentarios">
             <h2>Comentarios</h2>
             <div class="comentarios-grid">
@@ -179,7 +107,7 @@
 
                 <button type="submit">Enviar</button>
             </form>
-        </section>
+        </section >
     </main>
 
     <footer>
@@ -205,5 +133,6 @@
             <p>Desarrollada por Julian Falcon</p>
         </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
