@@ -72,58 +72,58 @@ const products = [
   ];
 
 
-  // Variables
-  let cart = []; // Array para almacenar los productos en el carrito
+  let cart = JSON.parse(localStorage.getItem('cart')) || []; // Recuperar el carrito desde localStorage (si existe)
   const cartDropdown = document.getElementById('cartDropdown');
   const cartItems = document.getElementById('cartItems');
   const totalPrice = document.getElementById('totalPrice');
   const checkoutBtn = document.getElementById('checkoutBtn');
   const productsContainer = document.getElementById('productos');
-  
+    
   // Función para mostrar productos dinámicamente
-// Función para mostrar productos dinámicamente
-function displayProducts() {
-  productsContainer.innerHTML = ''; // Limpiar productos anteriores
-
-  products.forEach(product => {
-      const productDiv = document.createElement('div');
-      productDiv.classList.add('producto');
-      productDiv.innerHTML = `
-          <img src="${product.imagen}" alt="${product.nombre}">
-          <h3>${product.nombre}</h3>
-          <p class="descripcion">${product.descripcion}</p> <!-- Descripción inicialmente oculta -->
-          <p>Precio: $${product.precio}</p>
-          <button class="add-to-cart" data-id="${product.id}" data-name="${product.nombre}" data-price="${product.precio}">Agregar al carrito</button>
-          <button class="ver-mas-btn">Ver más</button> <!-- Botón de "Ver más" -->
-      `;
-      productsContainer.appendChild(productDiv);
-
-      // Obtener el botón "Ver más" y la descripción
-      const verMasBtn = productDiv.querySelector('.ver-mas-btn');
-      const descripcion = productDiv.querySelector('.descripcion');
-
-      // Añadir el evento para alternar la visibilidad de la descripción
-      verMasBtn.addEventListener('click', () => {
-          descripcion.style.display = descripcion.style.display === 'none' || descripcion.style.display === '' ? 'block' : 'none';
-          // Cambiar el texto del botón según el estado
-          verMasBtn.textContent = descripcion.style.display === 'block' ? 'Ver menos' : 'Ver más';
-      });
-  });
-}
+  function displayProducts() {
+      productsContainer.innerHTML = ''; // Limpiar productos anteriores
   
+      products.forEach(product => {
+          const productDiv = document.createElement('div');
+          productDiv.classList.add('producto');
+          productDiv.innerHTML = `
+              <img src="${product.imagen}" alt="${product.nombre}">
+              <h3>${product.nombre}</h3>
+              <p class="descripcion">${product.descripcion}</p> <!-- Descripción inicialmente oculta -->
+              <p>Precio: $${product.precio}</p>
+              <button class="add-to-cart" data-id="${product.id}" data-name="${product.nombre}" data-price="${product.precio}">Agregar al carrito</button>
+              <button class="ver-mas-btn">Ver más</button> <!-- Botón de "Ver más" -->
+          `;
+          productsContainer.appendChild(productDiv);
+  
+          // Obtener el botón "Ver más" y la descripción
+          const verMasBtn = productDiv.querySelector('.ver-mas-btn');
+          const descripcion = productDiv.querySelector('.descripcion');
+  
+          // Añadir el evento para alternar la visibilidad de la descripción
+          verMasBtn.addEventListener('click', () => {
+              descripcion.style.display = descripcion.style.display === 'none' || descripcion.style.display === '' ? 'block' : 'none';
+              // Cambiar el texto del botón según el estado
+              verMasBtn.textContent = descripcion.style.display === 'block' ? 'Ver menos' : 'Ver más';
+          });
+      });
+  }
+    
   // Función para agregar un producto al carrito
   function addProductToCart(id, name, price) {
       const product = { id, name, price };
       cart.push(product);
       updateCart();
+      localStorage.setItem('cart', JSON.stringify(cart)); // Guardar el carrito en localStorage
   }
-  
+    
   // Función para eliminar un producto del carrito
   function removeProduct(index) {
       cart.splice(index, 1);
       updateCart();
+      localStorage.setItem('cart', JSON.stringify(cart)); // Guardar el carrito en localStorage
   }
-  
+    
   // Función para actualizar el carrito visualmente
   function updateCart() {
       cartItems.innerHTML = ''; // Limpiar los items existentes en el carrito
@@ -138,7 +138,7 @@ function displayProducts() {
   
       totalPrice.textContent = total.toFixed(2);
   }
-  
+    
   // Función para mostrar u ocultar el carrito desplegable
   document.querySelector('.cart').addEventListener('click', () => {
       // Asegúrate de que el carrito se muestre y oculte correctamente
@@ -148,18 +148,19 @@ function displayProducts() {
           cartDropdown.style.display = 'none'; // Oculta el carrito
       }
   });
-  
+    
   // Función de procedimiento de pago (simulada)
   checkoutBtn.addEventListener('click', () => {
       if (cart.length > 0) {
           alert('Procediendo al pago...');
           cart = []; // Limpiar el carrito después del pago
+          localStorage.removeItem('cart'); // Eliminar el carrito de localStorage
           updateCart();
       } else {
           alert('El carrito está vacío.');
       }
   });
-  
+    
   // Event listener para los botones "Agregar al carrito"
   productsContainer.addEventListener('click', (event) => {
       if (event.target && event.target.classList.contains('add-to-cart')) {
@@ -170,6 +171,9 @@ function displayProducts() {
           addProductToCart(id, name, price);
       }
   });
-  
+    
   // Mostrar los productos cuando la página cargue
-  displayProducts();
+  document.addEventListener('DOMContentLoaded', function() {
+      displayProducts();   // Mostrar productos en la página
+      updateCart();        // Mostrar el carrito (si hay productos guardados en localStorage)
+  });
