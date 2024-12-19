@@ -18,12 +18,20 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#consulta">Consulta</a></li>
-                            <li class="cart">
-                <a href="#" id="cartBtn">
-                    <img src="./img/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Carrito">
-                    <span id="cartCount">0</span>
-                </a>
-            </li>
+                <li class="cart">
+                    <!-- Botón para desplegar el carrito -->
+                    <button id="toggleCartBtn">Ver Carrito</button> 
+                
+                    <!-- Carrito desplegable -->
+                    <div id="cartDropdown" class="cart-dropdown">
+                        <h3>Tu Carrito</h3>
+                        <ul id="cartItems">
+                            <!-- Los productos del carrito se mostrarán aquí -->
+                        </ul>
+                        <p>Total: $<span id="totalPrice">0.00</span></p>
+                        <button id="checkoutBtn">Proceder al pago</button>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -35,23 +43,7 @@
         </section>
 
         <section class="productos" id="productos">
-            <div class="producto">
-                <img src="./img/img_brahma.webp" alt="Producto 1">
-                <h3>Brahma 1L</h3>
-                <p>Precio: $23500</p>
-            </div>
                 <!-- Carrito Modal -->
-    <div id="cartModal" class="cart-modal">
-        <div class="cart-content">
-            <span id="closeCart" class="close">&times;</span>
-            <h2>Tu Carrito</h2>
-            <ul id="cartItems">
-                <!-- Los productos del carrito se mostrarán aquí -->
-            </ul>
-            <p>Total: $<span id="totalPrice">0.00</span></p>
-            <button id="checkoutBtn">Proceder al pago</button>
-        </div>
-    </div>
         </section> 
         <section id="comentarios">
             <h2>Comentarios</h2>
